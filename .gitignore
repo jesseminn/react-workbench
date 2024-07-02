@@ -1,0 +1,13 @@
+.DS_Store
+.cache
+.config
+.git
+.local
+.parcel-cache
+.replit
+.upm
+.vscode
+replit.nix
+coverage
+dist
+node_modules
