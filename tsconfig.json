@@ -3,12 +3,14 @@
         // # Project Options
         "allowJs": true,
         "checkJs": true,
-        "lib": ["DOM", "ESNext"],
-        "module": "NodeNext",
+        "lib": ["dom", "esnext"],
+        "module": "commonjs",
         "outDir": "dist",
         "removeComments": true,
-        "target": "ESNext",
+        "target": "esnext",
         "declaration": true,
+        "declarationDir": "dist/@types",
+        "declarationMap": true,
         "sourceMap": true,
         "jsx": "react-jsx",
 
@@ -18,7 +20,7 @@
         // # Module Resolution
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "moduleResolution": "NodeNext",
+        "moduleResolution": "node",
 
         // # Advanced
         "forceConsistentCasingInFileNames": true,

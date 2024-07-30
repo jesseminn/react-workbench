@@ -13,7 +13,7 @@
         "./**/*": {
             "require": "./dist/**/*/index.js",
             "import": "./dist/**/*/index.js",
-            "types": "./dist/**/*/index.d.ts"
+            "types": "./dist/@types/**/*/index.d.ts"
         }
     },
     "files": [
@@ -22,11 +22,13 @@
     "scripts": {
         "dev": "parcel index.html --port 3000",
         "build": "rm -rf ./dist && npx --yes tsc",
+        "prepare": "[ ! -d '.git' ] && npm run build || husky",
         "test": "jest",
         "test:watch": "jest --watch",
         "format": "prettier . --write --ignore-path .gitignore",
         "format:watch": "onchange \"**/*\" -- prettier {{changed}} --write --ignore-path .gitignore --ignore-unknown",
-        "prepare": "npm run build"
+        "type-check": "tsc --noEmit",
+        "type-check:watch": "tsc --watch"
     },
     "devDependencies": {
         "@types/jest": "^29.5.12",
@@ -48,9 +50,21 @@
     },
     "peerDependencies": {
         "react": "^18.3.1",
-        "ts-workbench": "jesseminn/ts-workbench"
+        "rxjs": "^7.8.1",
+        "ts-workbench": "github:jesseminn/ts-workbench"
+    },
+    "@parcel/resolver-default": {
+        "packageExports": true
+    },
+    "typesVersions": {
+        "*": {
+            "*": [
+                "./dist/@types/*/index.d.ts"
+            ]
+        }
     },
     "lint-staged": {
-        "**/*": "prettier --write --ignore-unknown"
+        "**/*": "prettier --write --ignore-unknown",
+        "**/*.{js,jsx,ts,tsx}": "jest --bail --findRelatedTests --passWithNoTests"
     }
 }
