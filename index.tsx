@@ -4,9 +4,18 @@ import { createRoot } from 'react-dom/client';
 // hooks
 import { useEventCallback } from './src/hooks';
 
+// utils
+import { setTimer } from 'ts-workbench/timer';
+
 const App = () => {
     const onClick = useEventCallback(() => {
-        console.log('clicked!');
+        setTimer(
+            () => {
+                console.log('hi');
+            },
+            1000,
+            3000,
+        );
     });
 
     return (
