@@ -10,10 +10,10 @@
     "repository": "github:jesseminn/react-workbench",
     "license": "ISC",
     "exports": {
-        "./**/*": {
-            "require": "./dist/**/*/index.js",
-            "import": "./dist/**/*/index.js",
-            "types": "./dist/@types/**/*/index.d.ts"
+        "./*": {
+            "require": "./dist/*/index.js",
+            "import": "./dist/*/index.js",
+            "types": "./dist/@types/*/index.d.ts"
         }
     },
     "files": [
